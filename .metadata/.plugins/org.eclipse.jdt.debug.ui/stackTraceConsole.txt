@@ -1,0 +1,25 @@
+io.cucumber.junit.UndefinedStepException: The step 'the user enter the url' and 3 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("the user enter the url")
+public void the_user_enter_the_url() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the user enter the userName")
+public void the_user_enter_the_user_name() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("the user enter the passWord")
+public void the_user_enter_the_pass_word() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@When("user click the login")
+public void user_click_the_login() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+

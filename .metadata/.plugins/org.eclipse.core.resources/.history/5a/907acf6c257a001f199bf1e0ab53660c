@@ -1,0 +1,32 @@
+package SleniumClass;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class facebook {
+
+	public static void main(String[] args) throws Exception {
+		WebDriver driver;
+		
+		driver=new ChromeDriver();
+		
+		driver.manage().window().maximize();
+		
+		driver.get("https://www.naukri.com/nlogin/login");
+		
+		//using to hold the browser at certain amt of time.
+		Thread.sleep(2000);
+		driver.findElement(By.id("usernameField")).sendKeys("abc@gmail.com");
+		
+		Thread.sleep(2000);
+		driver.findElement(By.id("passwordField")).sendKeys("12345678");
+		
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//*[@id=\"loginForm\"]/div[2]/div[3]/div/button[1]")).click();
+		
+		Thread.sleep(2000);
+		driver.close();
+	}
+
+}

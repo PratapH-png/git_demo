@@ -1,0 +1,25 @@
+package actitime;
+
+import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.cucumber.java.en.Given;
+
+
+public class actiTimeSD {
+	WebDriver driver;
+	
+	@Test
+	@Given("Open the Browser")
+	public void open_the_browser() {
+	    System.setProperty("webdriver.gecko.driver", "C:\\Users\\Admin\\eclipse-workspace\\Task\\src\\test\\java\\Drivers\\geckodriver.exe");
+	    driver=new ChromeDriver();
+	}
+	
+	
+}
+
+
+
+

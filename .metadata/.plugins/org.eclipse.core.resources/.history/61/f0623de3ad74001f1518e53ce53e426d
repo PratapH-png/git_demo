@@ -1,0 +1,81 @@
+package SleniumClass;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class DropDown {
+
+	public static void main(String[] args) throws Exception {
+
+		System.setProperty("webdriver.chrome.driver", "C:\\Program Files\\Google\\Chrome\\Application.exe");
+
+		// launch the driver
+		WebDriver driver = new ChromeDriver();
+
+		// maximize the driver
+		driver.manage().window().maximize();
+
+		// use the get() method open facebook page
+		driver.get("https://www.facebook.com/");
+
+		// Using xpath to find the element of (create account)
+		driver.findElement(By.xpath("//*[contains(@id,'u_0_0')]")).click();
+
+		// 1st way
+		Thread.sleep(2000);
+		List<WebElement> BirthMonth = driver.findElements(By.xpath("//select[@id='month']/option"));
+		System.out.println("total number of dropdown :- " + BirthMonth.size());
+		BirthMonth.get(4).click(); // may
+
+		// 2nd way
+		WebElement bm = driver.findElement(By.xpath("//select[@id='month']"));
+		Select Month = new Select(bm);
+		Thread.sleep(2000);
+		Month.selectByVisibleText("Apr"); // Apr
+		Thread.sleep(2000);
+		Month.selectByValue("12"); // dec
+		Thread.sleep(2000);
+		Month.selectByIndex(7); // Aug
+		System.out.println(Month.getFirstSelectedOption().getText()); // Aug--- Current Selected Value or month
+
+		// 3rd way
+		Thread.sleep(2000);
+		//WebElement bm = driver.findElement(By.xpath("//select[@id='month']"));
+		//Select Month = new Select(bm);
+		List<WebElement> dropdown = Month.getOptions();
+		for (int i = 0; i < dropdown.size(); i++) {
+			if (dropdown.get(i).getText().equalsIgnoreCase("sep")) {
+				dropdown.get(i).click();
+			}
+		}
+
+		// 4th way
+		bm.sendKeys("Jan");
+
+		// 5th way
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//select[@id='month']")).sendKeys("Mar");
+
+		// 6th way
+		// check if dropdown support multi selection
+		Thread.sleep(2000);
+		System.out.println(Month.isMultiple()); // false
+		Month.selectByVisibleText("Apr"); // Apr
+		Month.selectByValue("12"); // dec
+		Month.selectByIndex(7); // Aug
+
+		// deselect the multi selected values //Thread.sleep(2000);
+		Month.deselectByVisibleText("Apr"); // Apr
+		Month.deselectByValue("12"); // dec
+		Month.deselectByIndex(7); // Aug
+		Month.deselectAll(); // deselect the values
+		//(Exception in thread "main" java.lang.UnsupportedOperationException: You may only deselect options of a multi-select)
+
+	}
+
+}

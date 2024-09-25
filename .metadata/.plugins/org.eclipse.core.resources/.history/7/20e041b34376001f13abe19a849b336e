@@ -1,0 +1,18 @@
+package actitime;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.cucumber.java.en.Given;
+
+public class actiTimeSD {
+	WebDriver driver;
+
+	@Given("browser is open")
+	public void browser_is_open() {
+		System.out.println("Opening the browser");
+		driver=new ChromeDriver();
+		
+	}
+
+}

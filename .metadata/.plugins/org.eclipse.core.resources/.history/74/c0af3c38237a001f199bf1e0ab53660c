@@ -1,0 +1,23 @@
+package SleniumClass;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class facebook {
+
+	public static void main(String[] args) {
+		WebDriver driver;
+		
+		driver=new ChromeDriver();
+		
+		driver.manage().window().maximize();
+		
+		driver.get("https://www.naukri.com/nlogin/login");
+		
+		driver.findElement(By.id("usernameField")).sendKeys("abc@gmail.com");
+		
+		
+	}
+
+}
